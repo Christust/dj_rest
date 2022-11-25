@@ -1,4 +1,9 @@
+# Archivo de configuraciones especificas para entorno local
+
+# Importamos todo el contenido de base.py el cual contiene las caracteristicas comunes
+# tanto para entorno local como para producción
 from .base import *
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

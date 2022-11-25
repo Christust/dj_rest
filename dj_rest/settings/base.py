@@ -1,7 +1,11 @@
+# Archvio de configuraciones comunes
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Se agrega un ".parent" mas ya que estamos dentro de una carpeta extra
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -11,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-cd)d@szix3vgh%vey_7ra1gr*x)#5g-=6mdy)*m9@vm@jxcky0"
 
 # Application definition
-
+# Se divide INSTALLED_APPS en tres partes, las apps base, las apps locales que nosotrs creamos y las apps de terceros que podemos incorporar con pip install.
 BASE_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -32,6 +36,7 @@ THIRD_APPS = [
     "simple_history",
 ]
 
+# Se juntan las tres partes en una sola variable
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
@@ -103,4 +108,5 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Colocamos la variable de entorno AUTH_USER_MODEL con nuestro modelo para usuarios personalizado
 AUTH_USER_MODEL = "users.User"
