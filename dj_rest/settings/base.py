@@ -4,6 +4,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
+# TODO Usar decouple para la SECRET_KEY
+# Importamos config y la clase Csv de decouple, la cual lee los datos de los archivos env
+# from decouple import config
+
 # Se agrega un ".parent" mas ya que estamos dentro de una carpeta extra
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -12,7 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# TODO: usar decouple para sustraer la SECRET_KEY de un archivo env
 SECRET_KEY = "django-insecure-cd)d@szix3vgh%vey_7ra1gr*x)#5g-=6mdy)*m9@vm@jxcky0"
+# SECRET_KEY = config("SECRET_KEY", default="")
 
 # Application definition
 # Se divide INSTALLED_APPS en tres partes, las apps base, las apps locales que nosotrs creamos y las apps de terceros que podemos incorporar con pip install.

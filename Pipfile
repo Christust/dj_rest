@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 django-simple-history = "*"
 pillow = "*"
+python-decouple = "*"
 
 [dev-packages]
 

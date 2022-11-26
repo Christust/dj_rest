@@ -4,10 +4,13 @@
 # tanto para entorno local como para producción
 from .base import *
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Importamos config y la clase Csv de decouple, la cual lee los datos de los archivos env
+from decouple import Csv, config
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config("DEBUG", cast=bool, default=False)
+
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv(), default=[])
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
