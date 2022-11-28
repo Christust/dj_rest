@@ -15,7 +15,12 @@ class ProductSerializer(serializers.ModelSerializer):
         return {
             "id": instance.id,
             "description": instance.description,
-            "image": instance.image if instance.image != "" else None,
+            "image": instance.image or None,
             "measure_unit": MeasureUnitSerializer(instance.measure_unit).data["description"],
             "category_product": CategoryProductSerializer(instance.category_product).data["description"],
         }
+
+    def create(self, validated_data):
+        if validated_data["image"] == None:
+            validated_data["image"]=""
+        return Product.objects.create(**validated_data)
