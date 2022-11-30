@@ -1,3 +1,5 @@
+# Iniciar el proyecto
+
 Creamos un entorno virtual con las siguientes instalaciones:
 ```
     django = "*"
@@ -28,6 +30,8 @@ django-admin startapp users
 
 Asi como en todas las apps creadas en una carpeta modificaremos su apps.py agregando el nombre de la carpeta al string "name", en nuestro caso la carpeta se llama apps:
 ```
+# apps.py
+
 class UsersConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "apps.users"
@@ -35,9 +39,12 @@ class UsersConfig(AppConfig):
 
 Creamos el modelo para usuarios junto con su clase manager:
 ```
+# models.py
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from simple_history.models import HistoricalRecords
+
 # Create your models here.
 class UserManager(BaseUserManager):
     def _create_user(self, username, ..., password, is_staff, is_superuser, **extra_fields):
