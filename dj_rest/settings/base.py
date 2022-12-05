@@ -39,7 +39,9 @@ LOCAL_APPS = [
 
 THIRD_APPS = [
     "rest_framework",
+    "rest_framework.authtoken",
     "simple_history",
+    'drf_yasg',
 ]
 
 # Se juntan las tres partes en una sola variable

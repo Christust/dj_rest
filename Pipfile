@@ -9,6 +9,7 @@ djangorestframework = "*"
 django-simple-history = "*"
 pillow = "*"
 python-decouple = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
