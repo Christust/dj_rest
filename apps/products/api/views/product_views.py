@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
 from apps.products.api.serializers.product_serializers import ProductSerializer
+from apps.users.authentication_mixin import Authentication
 
 # ! Metodo sustituido por ListCreateAPIVIEW, en desuso
 # Clase para Listar
@@ -71,7 +72,10 @@ from apps.products.api.serializers.product_serializers import ProductSerializer
 #             return Response({"message":"Producto eliminado correctamente"}, status.HTTP_204_NO_CONTENT)
 #         return Response({"message":"No se encontro el producto"}, status.HTTP_404_NOT_FOUND)
 
-class ProductViewSet(viewsets.ModelViewSet):
+
+# La clase ModelViewSet generara un CRUD automaticamente solo colocando el serializador y el queryset, sobre escribimos los metodos que necesitemos tener con logica especifica.
+# Heredamos de la clase Authentication para el metodo dispatch recibir el token.
+class ProductViewSet(Authentication, viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     queryset = serializer_class.Meta.model.objects.filter(state = True)
 

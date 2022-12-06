@@ -39,8 +39,11 @@ LOCAL_APPS = [
 
 THIRD_APPS = [
     "rest_framework",
+    # Libreria para la autenticación por token
     "rest_framework.authtoken",
+    # Libreria para simple history y rastrear las acciones del usuario
     "simple_history",
+    # Esta libreria nos ayuda para la documentación con swagger
     'drf_yasg',
 ]
 
@@ -118,3 +121,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Colocamos la variable de entorno AUTH_USER_MODEL con nuestro modelo para usuarios personalizado
 AUTH_USER_MODEL = "users.User"
+
+TOKEN_EXPIRED_AFTER_SECONDS = 10
