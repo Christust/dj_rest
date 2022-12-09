@@ -10,6 +10,7 @@ django-simple-history = "*"
 pillow = "*"
 python-decouple = "*"
 drf-yasg = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

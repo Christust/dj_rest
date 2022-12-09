@@ -45,12 +45,14 @@ THIRD_APPS = [
     "simple_history",
     # Esta libreria nos ayuda para la documentación con swagger
     'drf_yasg',
+    "corsheaders",
 ]
 
 # Se juntan las tres partes en una sola variable
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -123,3 +125,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "users.User"
 
 TOKEN_EXPIRED_AFTER_SECONDS = 20
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+    "http://127.0.0.1:3000",
+]
+
+CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
