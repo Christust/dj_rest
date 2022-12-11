@@ -45,7 +45,7 @@ urlpatterns = [
     # Se incluyen las urls de nuestras apps locales
     path("usuario/", include("apps.users.api.urls")),
     path("products/", include("apps.products.api.routers")),
-    path("", Login.as_view(), name="login"),
+    path("login/", Login.as_view(), name="login"),
     path("logout/", Logout.as_view(), name="logout"),
     path("refresh-token/", UserToken.as_view(), name="refresh-token"),
 
